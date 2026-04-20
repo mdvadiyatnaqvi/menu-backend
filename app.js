@@ -16,10 +16,7 @@ const app = express();
 app.use(helmet());
 
 // ─── CORS ────────────────────────────────────────────
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://menu-hub-63j4.vercel.app',
-  'https://menu-hub-ashen.vercel.app'
+const allowedOrigins = ["https://menu-frontend-blue.vercel.app/"
 ];
 
 app.use(cors({
