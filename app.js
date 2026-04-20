@@ -16,15 +16,11 @@ const app = express();
 app.use(helmet());
 
 // ─── CORS ────────────────────────────────────────────
-const allowedOrigins = ["https://menu-frontend-blue.vercel.app/"
-];
+const FRONTEND_URI = process.env.FRONTEND_URL;
 
 app.use(cors({
-  origin: [allowedOrigins],
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'x-user-id'],
-  credentials: true,
-  optionsSuccessStatus: 200,
+  origin: [FRONTEND_URI],
+  credentials: true
 }));
 
 // ─── Body parsing ────────────────────────────────────
