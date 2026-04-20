@@ -16,10 +16,14 @@ const app = express();
 app.use(helmet());
 
 // ─── CORS ────────────────────────────────────────────
-const FRONTEND_URI = process.env.FRONTEND_URL;
+const allowedOrigins = [
+  'https://menu-frontend-blue.vercel.app',
+  'http://localhost:3000', 
+  'http://localhost:3001'
+];
 
 app.use(cors({
-  origin: [FRONTEND_URI],
+  origin: allowedOrigins,
   credentials: true
 }));
 
