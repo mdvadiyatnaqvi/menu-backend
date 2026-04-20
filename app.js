@@ -20,16 +20,7 @@ const allowedOrigins = ["https://menu-frontend-blue.vercel.app/"
 ];
 
 app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (mobile apps, etc.)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      return callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: [allowedOrigins],
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'x-user-id'],
   credentials: true,
